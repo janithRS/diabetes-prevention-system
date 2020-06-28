@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>DiabiPal</title>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+
+<body>
+<main role="main" class="container text-center">
+    <h3 class="h3 p-3">Diabetes Predictor</h3>
+    <div class="container">
+        <form action='/predict' method="post">
+            <div class="form-group">
+                {#                <label for="Pregnancies">Pregnancies</label>#}
+                <input type="text" class="form-control" id="Pregnancies" aria-describedby="emailHelp"
+                       placeholder="Pregnancies" name="Pregnancies" required>
+            </div>
+
+            <div class="form-group">
+                {#                <label for="Glucose">Glucose</label>#}
+                <input type="text" class="form-control" id="Glucose" aria-describedby="emailHelp"
+                       placeholder="Glucose" name="Glucose">
+            </div>
+
+            <div class="form-group">
+                {#            <label for="BloodPressure">BloodPressure</label>#}
+                <input type="text" class="form-control" id="BloodPressure" aria-describedby="emailHelp"
+                       placeholder="BloodPressure" name="BloodPressure">
+            </div>
+
+            <div class="form-group">
+                {#            <label for="SkinThickness">SkinThickness</label>#}
+                <input type="text" class="form-control" id="SkinThickness" aria-describedby="emailHelp"
+                       placeholder="SkinThickness" name="SkinThickness">
+            </div>
+
+            <div class="form-group">
+                {#            <label for="Insulin">Insulin</label>#}
+                <input type="text" class="form-control" id="Insulin" aria-describedby="emailHelp"
+                       placeholder="Insulin" name="Insulin">
+            </div>
+
+            <div class="form-group">
+                {#            <label for="BMI">BMI</label>#}
+                <input type="text" class="form-control" id="BMI" aria-describedby="emailHelp"
+                       placeholder="BMI" name="BMI">
+            </div>
+
+            <div class="form-group">
+                {#            <label for="DiabetesPedigreeFunction">DiabetesPedigreeFunction</label>#}
+                <input type="text" class="form-control" id="DiabetesPedigreeFunction" aria-describedby="emailHelp"
+                       placeholder="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction">
+            </div>
+
+            <div class="form-group">
+                {#            <label for="Age">Age</label>#}
+                <input type="text" class="form-control" id="Age" aria-describedby="emailHelp"
+                       placeholder="Age" name="Age">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Predict Probability</button>
+        </form>
+    </div>
+        <div class="container p-3">
+        <p>Your are <span class="badge badge-danger">{{predictValue}}%</span> likely to have diabetes</p>
+    </div>
+</main>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+    console.log($.type({{ predictValue }}))
+</script>
+</body>
+</html>
+
