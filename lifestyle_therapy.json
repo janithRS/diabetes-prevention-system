@@ -1,0 +1,88 @@
+{
+  "Nutrition": [
+    {
+      "id": 1,
+      "stage": 1,
+      "con": "Maintain optimal weight. Calorie restriction. Plant-based diet; high polyunsaturated and monounsaturated fatty acids."
+    },
+    {
+      "id": 2,
+      "stage": 2,
+      "con": "Avoid trans fatty acids; limit saturated fatty acids."
+    },
+    {
+      "id": 3,
+      "stage": 3,
+      "con": "Structured counseling. Meal replacement."
+    }
+  ],
+  "Physical": [
+    {
+      "id": 1,
+      "stage": 1,
+      "con": "150 min/week moderate exertion (e.g., walking, stair climbing). Strength training. Increase as tolerated."
+    },
+    {
+      "id": 2,
+      "stage": 2,
+      "con": "Structured program. Wearable technologies."
+    },
+    {
+      "id": 3,
+      "stage": 3,
+      "con": "Medical evaluation/clearance. Medical supervision."
+    }
+  ],
+  "Sleep": [
+    {
+      "id": 1,
+      "stage": 1,
+      "con": "About 7 hours per night. Basic sleep hygiene."
+    },
+     {
+      "id": 2,
+      "stage": 2,
+      "con": "Screen OSA. Home sleep study."
+    },
+    {
+      "id": 3,
+      "stage": 3,
+      "con": "Referral to sleep lab."
+    }
+  ],
+  "Behavioral": [
+    {
+      "id": 1,
+      "stage": 1,
+      "con": "Community engagement. Alcohol moderation."
+    },
+    {
+      "id": 2,
+      "stage": 2,
+      "con": "Discuss mood with HCP."
+    },
+    {
+      "id": 3,
+      "stage": 3,
+      "con": "Formal behavioral therapy."
+    }
+  ],
+  "Smoking": [
+    {
+      "id": 1,
+      "stage": 1,
+      "con": "No tobacco products."
+    },
+    {
+      "id": 2,
+      "stage": 2,
+      "con": "Nicotine replacement therapy."
+    },
+    {
+      "id": 3,
+      "stage": 3,
+      "con": "Referral to structured program."
+    }
+  ]
+
+}
