@@ -60,22 +60,8 @@ def predict():
     prediction_prob = model.predict_proba(final)
     prediction_output = 'Positive' if (prediction[0]).item() == 1 else 'Negative'
 
-    lst = get_lifestyle_therapy()
-    d = json.loads(lst)
-
-    def fill_info(stage):
-        nutrition_info = d['Nutrition'][stage]['con']
-        physical_info = d['Physical'][stage]['con']
-        sleep_info = d['Sleep'][stage]['con']
-        behavioral_info = d['Behavioral'][stage]['con']
-        smoking_info = d['Smoking'][stage]['con']
-
-    if ob_stage == 1:
-        fill_info(0)
-    elif ob_stage == 2:
-        fill_info(1)
-    elif ob_stage == 3:
-        fill_info(2)
+    rec_res = give_rec(ob_stage)
+    nutrition_info, physical_info, sleep_info, behavioral_info = rec_res
 
     output_result = {
         "Message": "The result predictions according to the inputs",
@@ -93,6 +79,36 @@ def predict():
 
     output_json = json.dumps(output_result)
     return output_json
+
+def give_rec(ob_stage):
+    lst = get_lifestyle_therapy()
+    d = json.loads(lst)
+    nutrition_info = 'No recommendations'
+    physical_info = 'No recommendations'
+    sleep_info = 'No recommendations'
+    behavioral_info = 'No recommendations'
+    smoking_info = 'No recommendations'
+
+    if ob_stage == 1:
+        nutrition_info = d['Nutrition'][0]['con']
+        physical_info = d['Physical'][0]['con']
+        sleep_info = d['Sleep'][0]['con']
+        behavioral_info = d['Behavioral'][0]['con']
+        smoking_info = d['Smoking'][0]['con']
+    elif ob_stage == 2:
+        nutrition_info = d['Nutrition'][1]['con']
+        physical_info = d['Physical'][1]['con']
+        sleep_info = d['Sleep'][1]['con']
+        behavioral_info = d['Behavioral'][1]['con']
+        smoking_info = d['Smoking'][1]['con']
+    elif ob_stage == 3:
+        nutrition_info = d['Nutrition'][2]['con']
+        physical_info = d['Physical'][2]['con']
+        sleep_info = d['Sleep'][2]['con']
+        behavioral_info = d['Behavioral'][2]['con']
+        smoking_info = d['Smoking'][2]['con']
+
+    return nutrition_info, physical_info, sleep_info, behavioral_info, smoking_info
 
 
 def analyze_bmi(bmi):
