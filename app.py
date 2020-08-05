@@ -61,7 +61,7 @@ def predict():
     prediction_output = 'Positive' if (prediction[0]).item() == 1 else 'Negative'
 
     rec_res = give_rec(ob_stage)
-    nutrition_info, physical_info, sleep_info, behavioral_info = rec_res
+    nutrition_info, physical_info, sleep_info, behavioral_info, smoking_info = rec_res
 
     output_result = {
         "Message": "The result predictions according to the inputs",
