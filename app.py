@@ -41,14 +41,14 @@ def predict():
     datadict = json.loads(data)
     print(datadict)
 
-    preg_arg = datadict['preg']
-    glu_arg = datadict['glu']
-    bp_arg = datadict['bp']
-    skin_arg = datadict['skin']
-    ins_arg = datadict['ins']
-    bmi_arg = datadict['bmi']
-    ped_arg = datadict['ped']
-    age_arg = datadict['age']
+    preg_arg = int(datadict['preg'])
+    glu_arg = int(datadict['glu'])
+    bp_arg = int(datadict['bp'])
+    skin_arg = int(datadict['skin'])
+    ins_arg = int(datadict['ins'])
+    bmi_arg = int(datadict['bmi'])
+    ped_arg = int(datadict['ped'])
+    age_arg = int(datadict['age'])
 
     result = analyze_bmi(float(bmi_arg))
     ob_stage, ob_therapy = result
