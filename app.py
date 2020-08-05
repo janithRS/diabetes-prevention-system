@@ -36,30 +36,14 @@ def get_lifestyle_therapy():
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
-    data = request.data
-    print(data)
-    datadict = json.loads(data)
-    print(datadict)
-
-    preg_arg = datadict['preg']
-    glu_arg = datadict['glu']
-    bp_arg = datadict['bp']
-    skin_arg = datadict['skin']
-    ins_arg = datadict['ins']
-    bmi_arg = datadict['bmi']
-    ped_arg = datadict['ped']
-    age_arg = datadict['age']
-    #
-    # print(type(bmi_arg))
-
-    # preg_arg = request.args.get('preg')
-    # glu_arg = request.args.get('glu')
-    # bp_arg = request.args.get('bp')
-    # skin_arg = request.args.get('skin')
-    # ins_arg = request.args.get('ins')
-    # bmi_arg = request.args.get('bmi')
-    # ped_arg = request.args.get('ped')
-    # age_arg = request.args.get('age')
+    preg_arg = request.args.get('preg')
+    glu_arg = request.args.get('glu')
+    bp_arg = request.args.get('bp')
+    skin_arg = request.args.get('skin')
+    ins_arg = request.args.get('ins')
+    bmi_arg = request.args.get('bmi')
+    ped_arg = request.args.get('ped')
+    age_arg = request.args.get('age')
 
     result = analyze_bmi(float(bmi_arg))
     ob_stage, ob_therapy = result
