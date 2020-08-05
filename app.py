@@ -59,13 +59,36 @@ def predict():
     prediction = model.predict(final)
     prediction_prob = model.predict_proba(final)
     prediction_output = 'Positive' if (prediction[0]).item() == 1 else 'Negative'
+
+    lst = get_lifestyle_therapy()
+    d = json.loads(lst)
+
+    def fill_info(stage):
+        nutrition_info = d['Nutrition'][stage]['con']
+        physical_info = d['Physical'][stage]['con']
+        sleep_info = d['Sleep'][stage]['con']
+        behavioral_info = d['Behavioral'][stage]['con']
+        smoking_info = d['Smoking'][stage]['con']
+
+    if ob_stage == 1:
+        fill_info(0)
+    elif ob_stage == 2:
+        fill_info(1)
+    elif ob_stage == 3:
+        fill_info(2)
+
     output_result = {
         "Message": "The result predictions according to the inputs",
         "dm_prediction_prob_of_positive": int((prediction_prob[0][1] * 100).item()),
         "dm_prediction_prob_of_negative": int((prediction_prob[0][0] * 100).item()),
         "dm_prediction": prediction_output,
         "ob_stage": ob_stage,
-        "ob_therapy": ob_therapy
+        "ob_therapy": ob_therapy,
+        "nutrition_info": nutrition_info,
+        "physical_info": physical_info,
+        "sleep_info": sleep_info,
+        "behavioral_info": behavioral_info,
+        "smoking_info": smoking_info
     }
 
     output_json = json.dumps(output_result)
