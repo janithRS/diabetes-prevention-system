@@ -11,11 +11,11 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-@app.route('/')
-def get_index():
-    print("hello")
-    print(sys.path)
-    return render_template("diabetes_predict.html")
+# @app.route('/')
+# def get_index():
+#     print("hello")
+#     print(sys.path)
+#     return render_template("diabetes_predict.html")
 
 
 @app.route('/getQuiz')
